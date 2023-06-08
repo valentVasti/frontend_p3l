@@ -52,7 +52,7 @@
               <div class="form-group">
                 <button
                   type="submit"
-                  class="form-control btn btn-primary rounded submit px-3"
+                  class="form-control btn btn-danger rounded submit px-3"
                 >
                   Login
                 </button>
