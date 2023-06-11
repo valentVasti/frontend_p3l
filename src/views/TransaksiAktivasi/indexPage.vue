@@ -69,7 +69,7 @@
       onMounted(() => {
         //get API from Laravel Backend
         axios
-          .get("http://127.0.0.1:8000/api/transaksiAktivasi")
+          .get("https://valent.ppcdeveloper.com/api/transaksiAktivasi")
           .then((response) => {
             //assign state posts with response data
             transaksi_aktivasi.value = response.data.data;

@@ -122,7 +122,7 @@ export default {
 
     function getLaporanGym($month) {
       axios
-        .get("http://127.0.0.1:8000/api/laporanGymBulanan/" + $month)
+        .get("https://valent.ppcdeveloper.com/api/laporanGymBulanan/" + $month)
         .then((response) => {
           //assign state posts with response data
           laporan.value = response.data.data;

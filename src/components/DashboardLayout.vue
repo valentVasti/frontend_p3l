@@ -212,7 +212,7 @@ export default {
       //get API from Laravel Backend
       axios
         .get(
-          "http://192.168.16.240:8000/api/pegawai/" + localStorage.getItem("Id_User")
+          "https://valent.ppcdeveloper.com/api/pegawai/" + localStorage.getItem("Id_User")
         )
         .then((response) => {
           //assign state posts with response data

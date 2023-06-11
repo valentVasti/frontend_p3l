@@ -64,7 +64,7 @@
       onMounted(() => {
         //get API from Laravel Backend
         axios
-          .get("http://127.0.0.1:8000/api/getExpiredDepoK")
+          .get("https://valent.ppcdeveloper.com/api/getExpiredDepoK")
           .then((response) => {
             //assign state posts with response data
             deposit_kelas.value = response.data.data;
@@ -76,7 +76,7 @@
   
       function resetDepoK($id_member, $id_kelas) {
         axios
-          .get('http://127.0.0.1:8000/api/resetDepositKelas/' + $id_member + '/' + $id_kelas)
+          .get('https://valent.ppcdeveloper.com/api/resetDepositKelas/' + $id_member + '/' + $id_kelas)
           .then(() => {
             //splice instruktur
             window.location.reload();

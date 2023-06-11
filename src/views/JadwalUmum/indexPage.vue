@@ -273,7 +273,7 @@ export default {
     onMounted(() => {
       //get API from Laravel Backend
       axios
-        .get("http://127.0.0.1:8000/api/jadwalUmum")
+        .get("https://valent.ppcdeveloper.com/api/jadwalUmum")
         .then((response) => {
           //assign state posts with response data
           jadwal_umums.value = response.data.data;
@@ -285,7 +285,7 @@ export default {
 
     function deleted($id_jadwal_umum) {
       axios
-        .delete("http://127.0.0.1:8000/api/jadwalUmum/" + $id_jadwal_umum)
+        .delete("https://valent.ppcdeveloper.com/api/jadwalUmum/" + $id_jadwal_umum)
         .then(() => {
           //splice instruktur
           jadwal_umums.value.splice(

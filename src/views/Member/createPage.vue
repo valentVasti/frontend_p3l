@@ -84,7 +84,7 @@ export default {
             let email = member.email
             let password = member.password
 
-            axios.post('http://127.0.0.1:8000/api/member', {
+            axios.post('https://valent.ppcdeveloper.com/api/member', {
                 id_member: id_member,
                 nama: nama,
                 no_telp: no_telp,

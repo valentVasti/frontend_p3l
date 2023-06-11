@@ -107,7 +107,7 @@
       onMounted(() => {
         //get API from Laravel Backend
         axios
-          .get("http://127.0.0.1:8000/api/nonActiveMember")
+          .get("https://valent.ppcdeveloper.com/api/nonActiveMember")
           .then((response) => {
             //assign state posts with response data
             members.value = response.data.data;
@@ -127,7 +127,7 @@
         let tgl_kadaluarsa = '0000-00-00' // auto generate triggers
         let tgl_aktivasi = '0000-00-00' //di set di backend
 
-        axios.post('http://127.0.0.1:8000/api/transaksiAktivasi', {
+        axios.post('https://valent.ppcdeveloper.com/api/transaksiAktivasi', {
                 id_member: id_member,
                 id_pegawai: id_pegawai,
                 tgl_kadaluarsa: tgl_kadaluarsa,

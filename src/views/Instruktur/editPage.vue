@@ -101,7 +101,7 @@ export default {
             let email = instruktur.value['email']
             let password = instruktur.value['password']
 
-            axios.put('http://127.0.0.1:8000/api/instruktur/' + $id_instruktur, {
+            axios.put('https://valent.ppcdeveloper.com/api/instruktur/' + $id_instruktur, {
                 nama: nama,
                 no_telp: no_telp,
                 tgl_lahir: tgl_lahir,

@@ -107,7 +107,7 @@ export default {
     onMounted(() => {
       //get API from Laravel Backend
       axios
-        .get("http://127.0.0.1:8000/api/izinInstruktur")
+        .get("https://valent.ppcdeveloper.com/api/izinInstruktur")
         .then((response) => {
           //assign state posts with response data
           izin_instruktur.value = response.data.data;
@@ -120,7 +120,7 @@ export default {
 
     function confirmIzin($id_izin) {
       axios
-        .put("http://127.0.0.1:8000/api/izinInstruktur/confirm/" + $id_izin, {
+        .put("https://valent.ppcdeveloper.com/api/izinInstruktur/confirm/" + $id_izin, {
           status_konfirmasi: 1,
         })
         .then(() => {

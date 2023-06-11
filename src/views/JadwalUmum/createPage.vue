@@ -225,7 +225,7 @@ export default {
     onMounted(() => {
       //get API from Laravel Backend
       axios
-        .get(`http://127.0.0.1:8000/api/kelas`)
+        .get(`https://valent.ppcdeveloper.com/api/kelas`)
         .then((response) => {
           //assign state posts with response data
           kelass.value = response.data.data;
@@ -236,7 +236,7 @@ export default {
         });
 
       axios
-        .get(`http://127.0.0.1:8000/api/instruktur`)
+        .get(`https://valent.ppcdeveloper.com/api/instruktur`)
         .then((response) => {
           //assign state posts with response data
           instrukturs.value = response.data.data;
@@ -282,7 +282,7 @@ export default {
       let id_instruktur = jadwal_umum.id_instruktur;
 
       axios
-        .post("http://127.0.0.1:8000/api/jadwalUmum", {
+        .post("https://valent.ppcdeveloper.com/api/jadwalUmum", {
           id_jadwal_umum: id_jadwal_umum,
           hari_kelas_umum: hari_kelas_umum,
           jam_mulai: jam_mulai,

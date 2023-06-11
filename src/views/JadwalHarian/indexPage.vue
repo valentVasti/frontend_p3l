@@ -229,7 +229,7 @@ export default {
     onMounted(() => {
       //get API from Laravel Backend
       axios
-        .get("http://127.0.0.1:8000/api/jadwalHarian")
+        .get("https://valent.ppcdeveloper.com/api/jadwalHarian")
         .then((response) => {
           //assign state posts with response data
           jadwal_harian.value = response.data.data;
@@ -240,7 +240,7 @@ export default {
         });
 
       axios
-        .get(`http://127.0.0.1:8000/api/instruktur`)
+        .get(`https://valent.ppcdeveloper.com/api/instruktur`)
         .then((response) => {
           //assign state posts with response data
           instrukturs.value = response.data.data;
@@ -283,7 +283,7 @@ export default {
     function generateJadwalHarian() {
 
         axios
-          .get("http://127.0.0.1:8000/api/jadwalUmum")
+          .get("https://valent.ppcdeveloper.com/api/jadwalUmum")
           .then((response) => {
             //splice instruktur
             jadwal_umum.value = response.data.data;
@@ -377,7 +377,7 @@ export default {
       i
     ) {        
         axios
-          .post("http://127.0.0.1:8000/api/jadwalHarian", {
+          .post("https://valent.ppcdeveloper.com/api/jadwalHarian", {
             id_jadwal_harian: id_jadwal_harian,
             id_instruktur: id_instruktur,
             id_kelas: id_kelas,
@@ -419,7 +419,7 @@ export default {
 
     function liburkanKelas($id_jadwal_harian) {
       axios
-        .put("http://127.0.0.1:8000/api/jadwalHarian/" + $id_jadwal_harian, {
+        .put("https://valent.ppcdeveloper.com/api/jadwalHarian/" + $id_jadwal_harian, {
           keterangan: "LIBUR",
         })
         .then(() => {
@@ -437,7 +437,7 @@ export default {
       $nama_instruktur_diganti
     ) {
       axios
-        .put("http://127.0.0.1:8000/api/jadwalHarian/" + $id_jadwal_harian, {
+        .put("https://valent.ppcdeveloper.com/api/jadwalHarian/" + $id_jadwal_harian, {
           keterangan:
             "MENGGANTIKAN " +
             $id_instruktur_diganti +

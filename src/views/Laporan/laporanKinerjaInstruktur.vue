@@ -107,7 +107,7 @@ export default {
     onMounted(() => {
       //get API from Laravel Backend
       axios
-        .get("http://127.0.0.1:8000/api/laporanKinerjaInstruktur")
+        .get("https://valent.ppcdeveloper.com/api/laporanKinerjaInstruktur")
         .then((response) => {
           //assign state posts with response data
           laporan.value = response.data.data;

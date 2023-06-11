@@ -77,7 +77,7 @@ export default {
     onMounted(() => {
       //get API from Laravel Backend
       axios
-        .get("http://127.0.0.1:8000/api/instruktur")
+        .get("https://valent.ppcdeveloper.com/api/instruktur")
         .then((response) => {
           //assign state posts with response data
           instrukturs.value = response.data.data;
@@ -89,7 +89,7 @@ export default {
 
     function deleted($id_instruktur) {
       axios
-        .delete('http://127.0.0.1:8000/api/instruktur/' + $id_instruktur)
+        .delete('https://valent.ppcdeveloper.com/api/instruktur/' + $id_instruktur)
         .then(() => {
           //splice instruktur
           instrukturs.value.splice(instrukturs.value.indexOf($id_instruktur), 1);
@@ -102,7 +102,7 @@ export default {
 
     function resetKeterlambatan(){
       axios
-        .post("http://127.0.0.1:8000/api/resetKeterlambatan")
+        .post("https://valent.ppcdeveloper.com/api/resetKeterlambatan")
         .then(() => {
           //assign state posts with response data
           window.location.reload();

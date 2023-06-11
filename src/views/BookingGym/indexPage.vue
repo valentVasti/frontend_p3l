@@ -130,7 +130,7 @@
       onMounted(() => {
         //get API from Laravel Backend
         axios
-          .get("http://127.0.0.1:8000/api/bookingGym")
+          .get("https://valent.ppcdeveloper.com/api/bookingGym")
           .then((response) => {
             //assign state posts with response data
             booking_gym.value = response.data.data;
@@ -140,7 +140,7 @@
           });
 
           axios
-          .get("http://127.0.0.1:8000/api/bookingGymToday")
+          .get("https://valent.ppcdeveloper.com/api/bookingGymToday")
           .then((response) => {
             //assign state posts with response data
             booking_gym_today.value = response.data.data;
@@ -152,7 +152,7 @@
   
       function presensiGym($id_member, $sesi, $presensi) {
 
-        axios.post('http://127.0.0.1:8000/api/presensiGym/' + $presensi,{
+        axios.post('https://valent.ppcdeveloper.com/api/presensiGym/' + $presensi,{
             id_member: $id_member,
             sesi: $sesi,
         }).then(() => {

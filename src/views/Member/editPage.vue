@@ -71,7 +71,7 @@ export default {
 
         onMounted(() => {
             //get API from Laravel Backend
-            axios.get(`http://127.0.0.1:8000/api/member/${route.params.id}`).then(response => {
+            axios.get(`https://valent.ppcdeveloper.com/api/member/${route.params.id}`).then(response => {
                 //assign state posts with response data
                 member.value = response.data.data
                 console.log(member.value)              
@@ -94,7 +94,7 @@ export default {
             let email = member.value['email']
             let password = member.value['password']
 
-            axios.put('http://127.0.0.1:8000/api/member/' + $id_member, {
+            axios.put('https://valent.ppcdeveloper.com/api/member/' + $id_member, {
                 nama: nama,
                 no_telp: no_telp,
                 tgl_lahir: tgl_lahir,

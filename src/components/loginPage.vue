@@ -22,7 +22,7 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6 text-center mb-5">
-          <h2 class="heading-section">Go-Fit Test Netlify</h2>
+          <h2 class="heading-section">Go-Fit</h2>
         </div>
       </div>
       <div class="row justify-content-center">
@@ -112,7 +112,7 @@ export default {
       let password = loginData.password;
 
       axios
-        .post("http://127.0.0.1:8000/api/login", {
+        .post("https://valent.ppcdeveloper.com/api/login", {
           email: email,
           password: password,
         })

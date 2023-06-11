@@ -51,7 +51,7 @@
       onMounted(() => {
         //get API from Laravel Backend
         axios
-          .get(`http://127.0.0.1:8000/api/member`)
+          .get(`https://valent.ppcdeveloper.com/api/member`)
           .then((response) => {
             //assign state posts with response data
             member.value = response.data.data;
@@ -105,7 +105,7 @@
         let tgl_transaksi = '2012-12-12'
   
         axios
-          .post("http://127.0.0.1:8000/api/transaksiDepoU", {
+          .post("https://valent.ppcdeveloper.com/api/transaksiDepoU", {
             id_transaksi_depou: id_transaksi_depou,
             id_pegawai: id_pegawai,
             id_member: id_member,

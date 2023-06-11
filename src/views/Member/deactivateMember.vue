@@ -106,7 +106,7 @@
       onMounted(() => {
         //get API from Laravel Backend
         axios
-          .get("http://127.0.0.1:8000/api/expiredMember")
+          .get("https://valent.ppcdeveloper.com/api/expiredMember")
           .then((response) => {
             //assign state posts with response data
             members.value = response.data.data;
@@ -117,7 +117,7 @@
       });
   
       function deactivateMember($id_member) {
-            axios.put('http://127.0.0.1:8000/api/member/deactivate/' + $id_member, {
+            axios.put('https://valent.ppcdeveloper.com/api/member/deactivate/' + $id_member, {
                 nama: null
             }).then(() => {
                 //redirect ke post index

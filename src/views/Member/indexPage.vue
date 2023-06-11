@@ -146,7 +146,7 @@ export default {
     onMounted(() => {
       //get API from Laravel Backend
       axios
-        .get("http://127.0.0.1:8000/api/member")
+        .get("https://valent.ppcdeveloper.com/api/member")
         .then((response) => {
           //assign state posts with response data
           members.value = response.data.data;
@@ -158,7 +158,7 @@ export default {
 
     function deleted($id_member) {
       axios
-        .delete("http://127.0.0.1:8000/api/member/" + $id_member)
+        .delete("https://valent.ppcdeveloper.com/api/member/" + $id_member)
         .then(() => {
           //splice instruktur
           members.value.splice(members.value.indexOf($id_member), 1);
@@ -188,7 +188,7 @@ export default {
 
     function resetPassword($id_member) {
       axios
-        .get("http://127.0.0.1:8000/api/member/resetPass/" + $id_member)
+        .get("https://valent.ppcdeveloper.com/api/member/resetPass/" + $id_member)
         .then(() => {
           //splice instruktur
           // let myModal = Modal(document.getElementById('resetModal'), {});
