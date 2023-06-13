@@ -122,7 +122,13 @@ export default {
           let role = response.data.role.nama_role;
           localStorage.setItem('Role', role);
           localStorage.setItem('Id_User', response.data.data.id_pegawai)
-            
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Berhasil Login sebagai '.role,
+            showConfirmButton: false,
+            timer: 1500
+          })  
           router.push({
             name: "beranda",
           });
