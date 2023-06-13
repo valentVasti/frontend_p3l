@@ -34,7 +34,7 @@
                   >
                     <td>{{ data.id_transaksi }}</td>
                     <td>{{ data.pegawai.id_pegawai }} {{ "-" }} {{ data.pegawai.nama_pegawai }}</td>
-                    <td>{{ data.member.id_member }}</td>
+                    <td>{{ data.member.id_member }} {{ "-" }} {{ data.member.nama }}</td>
                     <td>{{ data.tgl_aktivasi }}</td>
                     <td>{{ data.tgl_kadaluarsa }}</td>
                     <td>
@@ -73,6 +73,8 @@
           .then((response) => {
             //assign state posts with response data
             transaksi_aktivasi.value = response.data.data;
+            console.log(transaksi_aktivasi.value);
+
           })
           .catch((error) => {
             console.log(error.response.data);
