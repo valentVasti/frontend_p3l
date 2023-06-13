@@ -128,13 +128,13 @@ export default {
           });
         })
         .catch((error) => {
-          validation.value = error.response.message;
+          validation.value = error.response.data.message;
           console.log(error)
 
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: error.response.message  ,
+            text: validation.value  ,
           })
         });
     }
