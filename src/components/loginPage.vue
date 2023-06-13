@@ -122,12 +122,9 @@ export default {
           let role = response.data.role.nama_role;
           localStorage.setItem('Role', role);
           localStorage.setItem('Id_User', response.data.data.id_pegawai)
-          Swal.fire({
-            title: 'Error!',
-            text: 'Do you want to continue',
-            icon: 'error',
-            confirmButtonText: 'Cool'
-          })
+            
+          Swal.fire('Any fool can use a computer');
+
           router.push({
             name: "beranda",
           });
