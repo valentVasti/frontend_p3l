@@ -129,7 +129,7 @@ export default {
         })
         .catch((error) => {
           validation.value = error.response.message;
-          console.log(validation.value)
+          console.log(error)
 
           Swal.fire({
             icon: 'error',
