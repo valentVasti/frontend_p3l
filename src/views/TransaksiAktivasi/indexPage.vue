@@ -34,7 +34,7 @@
                   >
                     <td>{{ data.id_transaksi }}</td>
                     <td>{{ data.pegawai.id_pegawai }} {{ "-" }} {{ data.pegawai.nama_pegawai }}</td>
-                    <td>{{ data.member.id_member }} {{ "-" }} {{ data.member.nama }}</td>
+                    <td>{{ data.member.id_member }}</td>
                     <td>{{ data.tgl_aktivasi }}</td>
                     <td>{{ data.tgl_kadaluarsa }}</td>
                     <td>
