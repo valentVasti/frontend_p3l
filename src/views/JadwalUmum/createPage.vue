@@ -283,6 +283,7 @@ export default {
         cancelButtonColor: '#d33',
         cancelButtonText: "Batal",
         confirmButtonText: 'Hapus'
+        
       }).then((result) => {
         if (result.isConfirmed) {
           let id_jadwal_umum = 0;
