@@ -123,14 +123,19 @@ export default {
           localStorage.setItem('Role', role);
           localStorage.setItem('Id_User', response.data.data.id_pegawai)
             
-          Swal.fire('Any fool can use a computer');
-
           router.push({
             name: "beranda",
           });
         })
         .catch((error) => {
-          validation.value = error.response.data;
+          validation.value = error.response.message;
+          consloe.log()
+
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: validation.value  ,
+          })
         });
     }
 
