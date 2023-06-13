@@ -133,7 +133,7 @@ export default {
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: validation.value  ,
+            text: error.response.message  ,
           })
         });
     }
