@@ -290,15 +290,24 @@ export default {
         title: 'Yakin hapus Jadwal Umum?',
         icon: 'warning',
         showCancelButton: true,
+        cancelButtonText: 'Batal',
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Batal'
+        confirmButtonText: 'Hapus'
       }).then((result) => {
         if (result.isConfirmed) {
           axios
             .delete("https://valent.ppcdeveloper.com/api/jadwalUmum/" + $id_jadwal_umum)
             .then(() => {
               //splice instruktur
+              if (result.isConfirmed) {
+                Swal.fire(
+                  'Berhasil Hapus!',
+                  'Jadwal Umum berhasil dihapus',
+                  'success'
+                )
+              }
+
               jadwal_umums.value.splice(
                 jadwal_umums.value.indexOf($id_jadwal_umum),
                 1
@@ -307,12 +316,15 @@ export default {
             })
             .catch((error) => {
               console.log(error.response.data);
+
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: error.response.data,
+              })
+
             });
-          Swal.fire(
-            'Jadwal Umum Berhasil Hapus',
-            'success'
-          )
-        }
+          }
       })
      }
 

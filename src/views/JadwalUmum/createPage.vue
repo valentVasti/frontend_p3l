@@ -274,35 +274,61 @@ export default {
     //method store
     function store() {
       // setJamKelas();
-      let id_jadwal_umum = 0;
-      let hari_kelas_umum = jadwal_umum.hari_kelas_umum;
-      let jam_mulai = jadwal_umum.selectedJam.substr(0, 8);
-      let jam_selesai = jadwal_umum.selectedJam.substr(11, 8);  
-      let id_kelas = jadwal_umum.id_kelas;
-      let id_instruktur = jadwal_umum.id_instruktur;
+      Swal.fire({
+        title: 'Yakin tambah jadwal umum?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: "Batal",
+        confirmButtonText: 'Hapus'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          let id_jadwal_umum = 0;
+          let hari_kelas_umum = jadwal_umum.hari_kelas_umum;
+          let jam_mulai = jadwal_umum.selectedJam.substr(0, 8);
+          let jam_selesai = jadwal_umum.selectedJam.substr(11, 8);  
+          let id_kelas = jadwal_umum.id_kelas;
+          let id_instruktur = jadwal_umum.id_instruktur;
 
-      axios
-        .post("https://valent.ppcdeveloper.com/api/jadwalUmum", {
-          id_jadwal_umum: id_jadwal_umum,
-          hari_kelas_umum: hari_kelas_umum,
-          jam_mulai: jam_mulai,
-          jam_selesai: jam_selesai,
-          id_kelas: id_kelas,
-          id_instruktur: id_instruktur,
-        })
-        .then(() => {
-          //redirect ke post index
-          router.push({
-            name: "jadwal_umum.index",
-          });
-        })
-        .catch((error) => {
-          //assign state validation with error
-          validation.value = error.response.data;
-          console.log(jadwal_umum.jam_mulai);
-          console.log(jadwal_umum.id_instruktur);
-          console.log(error);
-        });
+          axios
+            .post("https://valent.ppcdeveloper.com/api/jadwalUmum", {
+              id_jadwal_umum: id_jadwal_umum,
+              hari_kelas_umum: hari_kelas_umum,
+              jam_mulai: jam_mulai,
+              jam_selesai: jam_selesai,
+              id_kelas: id_kelas,
+              id_instruktur: id_instruktur,
+            })
+            .then(() => {
+              //redirect ke post index
+              Swal.fire(
+                'Berhasil Hapus!',
+                'Jadwal harian berhasil dihapus!',
+                'success'
+              )
+              
+              router.push({
+                name: "jadwal_umum.index",
+              });
+            })
+            .catch((error) => {
+              //assign state validation with error
+              validation.value = error.response.data;
+              console.log(jadwal_umum.jam_mulai);
+              console.log(jadwal_umum.id_instruktur);
+              console.log(error);
+
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: error.response.data.message,
+              })
+
+            });
+        }
+      })
+
     }
 
     //return
