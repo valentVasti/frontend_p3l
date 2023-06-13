@@ -91,6 +91,7 @@
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import axios from "axios";
+import Swal from 'sweetalert2'
 
 export default {
   setup() {
@@ -121,6 +122,12 @@ export default {
           let role = response.data.role.nama_role;
           localStorage.setItem('Role', role);
           localStorage.setItem('Id_User', response.data.data.id_pegawai)
+          Swal.fire({
+            title: 'Error!',
+            text: 'Do you want to continue',
+            icon: 'error',
+            confirmButtonText: 'Cool'
+          })
           router.push({
             name: "beranda",
           });
