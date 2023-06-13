@@ -129,7 +129,6 @@ export default {
         })
         .catch((error) => {
           validation.value = error.response.message;
-          consloe.log()
 
           Swal.fire({
             icon: 'error',
