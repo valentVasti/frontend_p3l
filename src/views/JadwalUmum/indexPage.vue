@@ -284,20 +284,35 @@ export default {
     });
 
     function deleted($id_jadwal_umum) {
-      axios
-        .delete("https://valent.ppcdeveloper.com/api/jadwalUmum/" + $id_jadwal_umum)
-        .then(() => {
-          //splice instruktur
-          jadwal_umums.value.splice(
-            jadwal_umums.value.indexOf($id_jadwal_umum),
-            1
-          );
-          window.location.reload();
-        })
-        .catch((error) => {
-          console.log(error.response.data);
-        });
-    }
+      Swal.fire({
+        title: 'Yakin hapus Jadwal Umum?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Batal'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          axios
+            .delete("https://valent.ppcdeveloper.com/api/jadwalUmum/" + $id_jadwal_umum)
+            .then(() => {
+              //splice instruktur
+              jadwal_umums.value.splice(
+                jadwal_umums.value.indexOf($id_jadwal_umum),
+                1
+              );
+              window.location.reload();
+            })
+            .catch((error) => {
+              console.log(error.response.data);
+            });
+          Swal.fire(
+            'Jadwal Umum Berhasil Hapus',
+            'success'
+          )
+        }
+      })
+     }
 
     //return
     return {
