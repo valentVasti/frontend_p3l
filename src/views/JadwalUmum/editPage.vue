@@ -222,34 +222,58 @@ export default {
 
     //method update
     function update($id_jadwalUmum) {
-      let hari_kelas_umum = jadwal_umum.value.hari_kelas_umum;
-      let jam_mulai = jadwal_umum.value.selectedJam.substr(0, 8);
-      let jam_selesai = jadwal_umum.value.selectedJam.substr(11, 8);
-      let id_kelas = jadwal_umum.value.id_kelas;
-      let id_instruktur = jadwal_umum.value.id_instruktur;
+      Swal.fire({
+        title: 'Yakin ubah jadwal umum?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: "Batal",
+        confirmButtonText: 'Ya, ubah!'
+        
+      }).then((result) => {
+      if (result.isConfirmed) { 
+        let hari_kelas_umum = jadwal_umum.value.hari_kelas_umum;
+        let jam_mulai = jadwal_umum.value.selectedJam.substr(0, 8);
+        let jam_selesai = jadwal_umum.value.selectedJam.substr(11, 8);
+        let id_kelas = jadwal_umum.value.id_kelas;
+        let id_instruktur = jadwal_umum.value.id_instruktur;
 
-      axios
-        .put("https://valent.ppcdeveloper.com/api/jadwalUmum/" + $id_jadwalUmum, {
-          hari_kelas_umum: hari_kelas_umum,
-          jam_mulai: jam_mulai,
-          jam_selesai: jam_selesai,
-          id_kelas: id_kelas,
-          id_instruktur: id_instruktur,
-        })
-        .then(() => {
-          //redirect ke post index
-          router.push({
-            name: "jadwal_umum.index",
+        axios
+          .put("https://valent.ppcdeveloper.com/api/jadwalUmum/" + $id_jadwalUmum, {
+            hari_kelas_umum: hari_kelas_umum,
+            jam_mulai: jam_mulai,
+            jam_selesai: jam_selesai,
+            id_kelas: id_kelas,
+            id_instruktur: id_instruktur,
+          })
+          .then(() => {
+            //redirect ke post index
+            Swal.fire(
+                'Berhasil Ubah!',
+                'Jadwal umum berhasil diubah!',
+                'success'
+            )
+
+            router.push({
+              name: "jadwal_umum.index",
+            });
+          })
+          .catch((error) => {
+            //assign state validation with error
+            validation.value = error.response.data;
+            console.log(error.response.data);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: error.response.data.message,
+              })
+            router.push({
+              name: "jadwal_umum.index",
+            });
           });
-        })
-        .catch((error) => {
-          //assign state validation with error
-          validation.value = error.response.data;
-          console.log(error.response.data);
-          router.push({
-            name: "jadwal_umum.index",
-          });
-        });
+      }
+      })
     }
 
     //return

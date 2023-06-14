@@ -282,7 +282,7 @@ export default {
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         cancelButtonText: "Batal",
-        confirmButtonText: 'Hapus'
+        confirmButtonText: 'Ya, tambah!'
         
       }).then((result) => {
         if (result.isConfirmed) {
@@ -306,7 +306,7 @@ export default {
               //redirect ke post index
               Swal.fire(
                 'Berhasil Hapus!',
-                'Jadwal harian berhasil dihapus!',
+                'Jadwal umum berhasil dihapus!',
                 'success'
               )
               
